@@ -25,31 +25,24 @@
     
 </template>
   
-  <script>
-  export default {
-    data: () => ({
-      loading: false,
-      currentImage: "https://picsum.photos/1200/500", // Imagen inicial
-      imageList: [
-        "https://picsum.photos/1200/721",
-        "https://picsum.photos/1200/722",
-        "https://picsum.photos/1200/723",
-      ], // Lista de imágenes a cambiar
-      imageIndex: 0,
-    }),
-  
-    methods: {
-      changeImage() {
-        this.loading = true;
-  
-        // Simula el tiempo de carga (2000ms) y luego cambia la imagen
-        setTimeout(() => {
-          this.loading = false;
-          this.imageIndex = (this.imageIndex + 1) % this.imageList.length;
-          this.currentImage = this.imageList[this.imageIndex];
-        }, 500);
-      },
+<script>
+export default {
+  data: () => ({
+    loading: false,
+    currentImage: `https://picsum.photos/id/${Math.floor(Math.random()*1000)}/1200/720`, // Imagen inicial
+  }),
+
+  methods: {
+    changeImage() {
+      this.loading = true;
+
+      // Simula el tiempo de carga (2000ms) y luego cambia la imagen
+      setTimeout(() => {
+        this.loading = false;
+        this.currentImage = `https://picsum.photos/id/${Math.floor(Math.random()*1000)}/1200/720`; // Cambia la imagen aquí
+      }, 500);
     },
-  };
-  </script>
+  },
+};
+</script>
   
